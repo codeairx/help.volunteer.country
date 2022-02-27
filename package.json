@@ -5,6 +5,7 @@
 	"license": "",
 	"sideEffects": false,
 	"scripts": {
+		"prebuild": "npm run build:css",
 		"build": "remix build",
 		"dev": "concurrently \"npm run dev:css\" \"cross-env NODE_ENV=development netlify dev\"",
 		"postinstall": "remix setup node",
