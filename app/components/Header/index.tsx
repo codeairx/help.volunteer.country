@@ -5,6 +5,7 @@ export default () => (
     <div className="flex items-center">
       <a
         className="flex"
+        target="_blank"
         href="https://www.volunteer.country"
         rel="noopener noreferrer"
       >
@@ -26,6 +27,7 @@ export default () => (
     <div>
       <a
         className="bg-secondary-color rounded-full text-primary-color py-3 px-6 font-semibold"
+        target="_blank"
         href="https://savelife.in.ua/donate/"
         rel="noopener noreferrer"
       >
