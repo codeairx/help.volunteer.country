@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import Modal from "../Modal";
 import CategoryItem from "./CategoryItem";
 import categories from "~/data/categories.json";
@@ -9,7 +11,15 @@ export interface CategoriesModalProps {
 	readonly opened: boolean;
 }
 
+export const _baseUrl = "https://platforma.volunteer.country/events";
+
 export default ({ close, opened }: CategoriesModalProps) => {
+	const [baseUrl, setBaseUrl] = useState(_baseUrl);
+
+	// const transformUrl = (url) => {
+
+	// }
+
 	return (
 		<Modal close={close} opened={opened}>
 			<CustomSelect

@@ -1,6 +1,6 @@
-import Modal from "../Modal";
 import { useState } from "react";
 
+import Modal from "../Modal";
 import chats from "~/data/chats.json";
 import Telegram from "../Icons/Telegram";
 import CustomSelect from "../CustomSelect";
