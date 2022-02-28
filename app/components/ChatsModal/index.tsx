@@ -1,9 +1,9 @@
 import Modal from "../Modal";
-import Select from "react-select";
 import { useState } from "react";
 
 import chats from "~/data/chats.json";
 import Telegram from "../Icons/Telegram";
+import CustomSelect from "../CustomSelect";
 
 export interface ChatsModalProps {
 	readonly close: VoidFunction;
@@ -21,9 +21,9 @@ export default ({ close, opened }: ChatsModalProps) => {
 			}}
 			opened={opened}
 		>
-			<Select
+			<CustomSelect
 				className="mb-4"
-				onChange={(data) => setCityFilter(data && data.value)}
+				onChange={(data: any) => setCityFilter(data && data.value)}
 				options={Object.keys(chats).map((city) => ({
 					value: city,
 					label: city,
