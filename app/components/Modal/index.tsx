@@ -23,11 +23,15 @@ export default ({ close, opened, children }: PropsWithChildren<ModalProps>) => (
 		className="
 			transition-transform
 			bg-primary-color
-			p-4
+			px-4
+			pt-4
 			text-white
 			outline-none
+			flex
+			flex-col
 			md:relative
-			md:p-8
+			md:px-8
+			md:pt-8
 			md:border-l-2
 			md:border-l-solid
 			md:border-l-slate-800

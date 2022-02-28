@@ -3,6 +3,7 @@ import Select from "react-select";
 import { useState } from "react";
 
 import chats from "~/data/chats.json";
+import Telegram from "../Icons/Telegram";
 
 export interface ChatsModalProps {
 	readonly close: VoidFunction;
@@ -21,14 +22,16 @@ export default ({ close, opened }: ChatsModalProps) => {
 					label: city,
 				}))}
 			/>
-			<div>
-				<p>Чати міст України</p>
+			<p className="text-slate-300 mb-4">Чати міст України</p>
+			<div className="flex-1 overflow-auto">
 				<ul>
 					{Object.entries(chats)
 						.filter(([city]) => cityFilter === null || cityFilter === city)
 						.map(([city, link]) => (
-							<li key={city + link}>
-								<a href={link}>Чат для міста: {city}</a>
+							<li key={city + link} className="mb-4">
+								<a href={link} className="flex items-center">
+									<Telegram className="mr-4 h-6" /> {city}
+								</a>
 							</li>
 						))}
 				</ul>
