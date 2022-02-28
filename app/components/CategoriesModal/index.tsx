@@ -81,10 +81,7 @@ export default ({ close, opened }: CategoriesModalProps) => {
 					</li>
 				))}
 			</ul>
-			<div
-				className="flex py-6 px-6  border-t-4 border-indigo-600"
-				style={{ borderTop: "1px solid #FFFFFF" }}
-			>
+			<div className="flex py-6 px-6 border-t border-t-solid border-t-slate-600">
 				<a
 					className="inline-block md:w-60 text-center font-semibold rounded-full bg-secondary-color py-4 px-6 md:mr-8 text-primary-color"
 					href={finalUrl}
