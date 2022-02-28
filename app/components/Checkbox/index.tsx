@@ -11,8 +11,8 @@ export default ({ id, checked, onChange, className = "" }: CheckboxProps) => (
 			id={id}
 			type="checkbox"
 			checked={checked}
-			className="invisible absolute"
 			onChange={onChange}
+			className="invisible absolute"
 		/>
 		<label
 			htmlFor={id}
