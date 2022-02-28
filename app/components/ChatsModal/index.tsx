@@ -14,9 +14,16 @@ export default ({ close, opened }: ChatsModalProps) => {
 	const [cityFilter, setCityFilter] = useState<string | null>(null);
 
 	return (
-		<Modal close={close} opened={opened}>
+		<Modal
+			close={() => {
+				setCityFilter(null);
+				close();
+			}}
+			opened={opened}
+		>
 			<Select
-				onChange={console.log}
+				className="mb-4"
+				onChange={(data) => setCityFilter(data && data.value)}
 				options={Object.keys(chats).map((city) => ({
 					value: city,
 					label: city,

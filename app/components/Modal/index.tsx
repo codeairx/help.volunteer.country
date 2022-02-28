@@ -1,14 +1,20 @@
 import Modal from "react-modal";
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, useRef } from "react";
 
 export interface ModalProps {
 	readonly close: VoidFunction;
 	readonly opened: boolean;
 }
 
-export default ({ close, opened, children }: PropsWithChildren<ModalProps>) => (
-	<Modal
-		overlayClassName="
+export default ({ close, opened, children }: PropsWithChildren<ModalProps>) => {
+	const appElement = useRef<HTMLDivElement>(null);
+
+	return (
+		<>
+			<div ref={appElement} />
+			<Modal
+				appElement={appElement.current ?? undefined}
+				overlayClassName="
 			fixed
 			bg-primary-color/90
 			top-0
@@ -18,8 +24,8 @@ export default ({ close, opened, children }: PropsWithChildren<ModalProps>) => (
 			flex
 			justify-end
 		"
-		className={{
-			base: `
+				className={{
+					base: `
 				transition-transform
 				bg-primary-color
 				px-4
@@ -39,18 +45,18 @@ export default ({ close, opened, children }: PropsWithChildren<ModalProps>) => (
 				md:translate-x-full
 				lg:w-5/12
 			`,
-			beforeClose: "",
-			afterOpen: `
+					beforeClose: "",
+					afterOpen: `
 				md:translate-x-0
 			`,
-		}}
-		bodyOpenClassName="overflow-hidden"
-		shouldCloseOnOverlayClick
-		onRequestClose={close}
-		isOpen={opened}
-	>
-		<button
-			className="
+				}}
+				bodyOpenClassName="overflow-hidden"
+				shouldCloseOnOverlayClick
+				onRequestClose={close}
+				isOpen={opened}
+			>
+				<button
+					className="
 				bg-white
 				absolute
 				top-4
@@ -79,8 +85,10 @@ export default ({ close, opened, children }: PropsWithChildren<ModalProps>) => (
 				after:bg-primary-color
 				after:rotate-45
 			"
-			onClick={close}
-		></button>
-		{children}
-	</Modal>
-);
+					onClick={close}
+				></button>
+				{children}
+			</Modal>
+		</>
+	);
+};
