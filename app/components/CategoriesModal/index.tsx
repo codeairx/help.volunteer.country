@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 
 import Modal from "../Modal";
+import Magazine from "../Icons/Magazine";
 import CustomSelect from "../CustomSelect";
 import CategoryItem, { CategoryObject } from "./CategoryItem";
-import icon from "~/assets/icons/magazine.svg";
 
 import chats from "~/data/chats.json";
 import categoriesData from "~/data/categories.json";
@@ -59,15 +59,16 @@ export default ({ close, opened }: CategoriesModalProps) => {
 	return (
 		<Modal close={close} opened={opened}>
 			<CustomSelect
-				className="mb-6"
+				className="mb-6 text-primary-color"
 				isMulti
 				onChange={handleChange}
 				options={Object.keys(chats).map((city) => ({
 					value: city,
 					label: city,
 				}))}
+				placeholder="Оберіть місто"
 			/>
-			<div>
+			<div className="overflow-auto">
 				<p className="font-16 leading-4 font-bold mb-6">
 					Категорії де ви можете допомогти
 				</p>
@@ -82,27 +83,27 @@ export default ({ close, opened }: CategoriesModalProps) => {
 						</li>
 					))}
 				</ul>
-				<div
-					className="flex py-6 px-6  border-t-4 border-indigo-600"
-					style={{ borderTop: "1px solid #FFFFFF" }}
+			</div>
+			<div
+				className="flex py-6 justify-between border-t-4 border-indigo-600 md:flex-row flex-col"
+				style={{ borderTop: "1px solid #FFFFFF" }}
+			>
+				<a
+					className="inline-block md:w-50 max-w-xs mb-4 md:mb-0 text-center font-semibold rounded-full bg-secondary-color p-4 md:mr-8 text-primary-color"
+					href={finalUrl}
+					target="_blank"
+					rel="noopener noreferrer"
 				>
-					<a
-						className="inline-block md:w-60 text-center font-semibold rounded-full bg-secondary-color py-4 px-6 md:mr-8 text-primary-color"
-						href={finalUrl}
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						Знайти волонтерства
-					</a>
-					<a
-						className="flex items-center inline-block md:w-60 text-center border font-semibold rounded-full bg-primary-color py-4 px-6 text-secondary-color"
-						href="#"
-						target="_blank"
-					>
-						<span className="inline-block mr-4">Заповнити анкету</span>
-						<img className="inline-block" src={icon} alt="form icon" />
-					</a>
-				</div>
+					Знайти волонтерства
+				</a>
+				<a
+					className="flex items-center justify-center md:w-50 max-w-xs text-center border font-semibold rounded-full bg-primary-color p-4"
+					href="#"
+					target="_blank"
+				>
+					<span className="inline-block mr-4">Заповнити анкету</span>
+					<Magazine />
+				</a>
 			</div>
 		</Modal>
 	);
