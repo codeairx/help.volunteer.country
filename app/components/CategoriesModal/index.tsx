@@ -5,7 +5,6 @@ import Magazine from "../Icons/Magazine";
 import CustomSelect from "../CustomSelect";
 import CategoryItem, { CategoryObject } from "./CategoryItem";
 
-import icon from "~/assets/icons/magazine.svg";
 import chats from "~/data/chats.json";
 import categoriesData from "~/data/categories.json";
 
@@ -83,9 +82,9 @@ export default ({ close, opened }: CategoriesModalProps) => {
 					</li>
 				))}
 			</ul>
-			<div className="flex py-6 px-6 border-t border-t-solid border-t-slate-600">
+			<div className="flex py-6 border-t border-t-solid border-t-slate-600">
 				<a
-					className="inline-block md:w-60 text-center font-semibold rounded-full bg-secondary-color py-4 px-6 md:mr-8 text-primary-color"
+					className="inline-block mr-4 md:w-60 text-center font-semibold rounded-full bg-secondary-color p-4 md:mr-8 text-primary-color"
 					href={finalUrl}
 					target="_blank"
 					rel="noopener noreferrer"
@@ -93,7 +92,7 @@ export default ({ close, opened }: CategoriesModalProps) => {
 					Знайти волонтерства
 				</a>
 				<a
-					className="flex items-center justify-center md:w-50 max-w-xs text-center border font-semibold rounded-full bg-primary-color p-4"
+					className="flex items-center justify-center md:w-50 max-w-xs text-center border font-semibold p-4 rounded-full bg-primary-color"
 					href="#"
 					target="_blank"
 				>
