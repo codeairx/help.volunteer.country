@@ -1,24 +1,40 @@
-import { useState } from "react";
+import { useState, Dispatch, SetStateAction } from "react";
 
 interface CategoryItemProps {
-	readonly category: string;
 	readonly id: string;
+	readonly category: string;
+	readonly setCategories: Dispatch<SetStateAction<CategoryObject[]>>;
 }
 
-export default ({ category, id }: CategoryItemProps) => {
+export interface CategoryObject {
+	readonly id: string;
+	readonly category: string;
+}
+
+export default ({ category, id, setCategories }: CategoryItemProps) => {
 	const [isChecked, setIsChecked] = useState(false);
 
-	const handleClick = () => setIsChecked((prev) => !prev);
+	const handleClick = () => {
+		setIsChecked((prev) => !prev);
+		if (!isChecked) {
+			setCategories((prev) => [...prev, { category, id }]);
+		} else {
+			setCategories((prev) => [...prev.filter((cat) => cat.id !== id)]);
+		}
+	};
 
 	return (
 		<div className="flex items-center cursor-pointer" onClick={handleClick}>
-			<input
-				className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-				type="checkbox"
-				checked={isChecked}
-			/>
-			<label className="cursor-pointer form-check-label text-16 text-black-800 leading-3">
-				{category}
+			<label className="flex items-center cursor-pointer">
+				<input
+					type="checkbox"
+					className="form-checkbox cursor-pointer"
+					checked={isChecked}
+					style={{ marginRight: "1rem" }}
+				/>
+				<span className="inline-block w-full" onClick={handleClick}>
+					{category}
+				</span>
 			</label>
 		</div>
 	);
