@@ -28,7 +28,7 @@ export default ({ close, opened }: CategoriesModalProps) => {
 				</p>
 				<ul>
 					{Object.entries(categories).map(([category, id]) => (
-						<li className="flex items-center" key={category + id}>
+						<li className="flex items-center mb-6" key={category + id}>
 							<CategoryItem category={category} id={id} />
 						</li>
 					))}
