@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 import Modal from "../Modal";
 import CustomSelect from "../CustomSelect";
 import CategoryItem, { CategoryObject } from "./CategoryItem";
-import icon from "~/assets/icons/magazine.svg";
 
+import icon from "~/assets/icons/magazine.svg";
 import chats from "~/data/chats.json";
 import categoriesData from "~/data/categories.json";
 
@@ -67,42 +67,40 @@ export default ({ close, opened }: CategoriesModalProps) => {
 					label: city,
 				}))}
 			/>
-			<div>
-				<p className="font-16 leading-4 font-bold mb-6">
-					Категорії де ви можете допомогти
-				</p>
-				<ul className="mb-6">
-					{Object.entries(categoriesData).map(([category, id]) => (
-						<li className="mb-6" key={category + id}>
-							<CategoryItem
-								category={category}
-								id={id}
-								setCategories={setCategories}
-							/>
-						</li>
-					))}
-				</ul>
-				<div
-					className="flex py-6 px-6  border-t-4 border-indigo-600"
-					style={{ borderTop: "1px solid #FFFFFF" }}
+			<p className="font-16 leading-4 text-slate-300 mb-6">
+				Категорії де ви можете допомогти
+			</p>
+			<ul className="mb-6 overflow-auto">
+				{Object.entries(categoriesData).map(([category, id]) => (
+					<li className="mb-6" key={category + id}>
+						<CategoryItem
+							category={category}
+							id={id}
+							setCategories={setCategories}
+						/>
+					</li>
+				))}
+			</ul>
+			<div
+				className="flex py-6 px-6  border-t-4 border-indigo-600"
+				style={{ borderTop: "1px solid #FFFFFF" }}
+			>
+				<a
+					className="inline-block md:w-60 text-center font-semibold rounded-full bg-secondary-color py-4 px-6 md:mr-8 text-primary-color"
+					href={finalUrl}
+					target="_blank"
+					rel="noopener noreferrer"
 				>
-					<a
-						className="inline-block md:w-60 text-center font-semibold rounded-full bg-secondary-color py-4 px-6 md:mr-8 text-primary-color"
-						href={finalUrl}
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						Знайти волонтерства
-					</a>
-					<a
-						className="flex items-center inline-block md:w-60 text-center border font-semibold rounded-full bg-primary-color py-4 px-6 text-secondary-color"
-						href="#"
-						target="_blank"
-					>
-						<span className="inline-block mr-4">Заповнити анкету</span>
-						<img className="inline-block" src={icon} alt="form icon" />
-					</a>
-				</div>
+					Знайти волонтерства
+				</a>
+				<a
+					className="flex items-center inline-block md:w-60 text-center border font-semibold rounded-full bg-primary-color py-4 px-6 text-secondary-color"
+					href="#"
+					target="_blank"
+				>
+					<span className="inline-block mr-4">Заповнити анкету</span>
+					<img className="inline-block" src={icon} alt="form icon" />
+				</a>
 			</div>
 		</Modal>
 	);
