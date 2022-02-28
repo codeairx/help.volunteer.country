@@ -5,42 +5,26 @@ import Header from "~/components/Header";
 import ChatsModal from "~/components/ChatsModal";
 import CategoriesModal from "~/components/CategoriesModal";
 
+import unityHandsURL from "~/components/Main/unity_hands.png";
+
 import styles from "../tailwind.css";
 
-export const links = () => [
-	{ rel: "stylesheet", href: styles },
-	{
-		name: "description",
-		content:
-			"Ми розвиваємо волонтерський рух в Україні. Наша місія – волонтерство для кожного.",
-	},
-	{
-		name: "keywords",
-		content:
-			"Ukrainian Volunteer Service, волонтерство, UVS, УВС, Українська Волонтерська Служба, Волонтерство в Україні",
-	},
-	{
-		property: "og:url",
-		content: "#",
-	},
-	{
-		property: "og:title",
-		content: "Українська Волонтерська Служба",
-	},
-	{
-		property: "og:description",
-		content:
-			"Ми розвиваємо волонтерський рух в Україні. Наша місія – волонтерство для кожного.",
-	},
-	{
-		property: "og:type",
-		content: "website",
-	},
-	{
-		property: "og:image",
-		content: "#",
-	},
-];
+export const links = () => [{ rel: "stylesheet", href: styles }];
+
+export const meta = () => ({
+	description:
+		"Ми розвиваємо волонтерський рух в Україні. Наша місія – волонтерство для кожного.",
+	keywords:
+		"Ukrainian Volunteer Service, волонтерство, UVS, УВС, Українська Волонтерська Служба, Волонтерство в Україні",
+	canonical: "https://www.help.volunteer.country",
+	"og:url": "https://www.help.volunteer.country",
+	"og:title": "Українська Волонтерська Служба",
+	"og:description":
+		"Ми розвиваємо волонтерський рух в Україні. Наша місія – волонтерство для кожного.",
+	"og:type": "website",
+	"og:image": "https://www.help.volunteer.country" + unityHandsURL,
+	"og:locale": "uk",
+});
 
 export default () => {
 	const [isChatsModalOpened, setIsChatsModalOpened] = useState(false);
