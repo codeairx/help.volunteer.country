@@ -21,7 +21,7 @@ export const links = () => [
 	},
 	{
 		property: "og:url",
-		content: "#",
+		content: "https://www.help.volunteer.country",
 	},
 	{
 		property: "og:title",
@@ -39,6 +39,10 @@ export const links = () => [
 	{
 		property: "og:image",
 		content: "#",
+	},
+	{
+		ref: "canonical",
+		href: "https://www.help.volunteer.country",
 	},
 ];
 
