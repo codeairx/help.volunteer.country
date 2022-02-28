@@ -5,6 +5,7 @@ import Magazine from "../Icons/Magazine";
 import CustomSelect from "../CustomSelect";
 import CategoryItem, { CategoryObject } from "./CategoryItem";
 
+import icon from "~/assets/icons/magazine.svg";
 import chats from "~/data/chats.json";
 import categoriesData from "~/data/categories.json";
 
@@ -68,28 +69,23 @@ export default ({ close, opened }: CategoriesModalProps) => {
 				}))}
 				placeholder="Оберіть місто"
 			/>
-			<div className="overflow-auto">
-				<p className="font-16 leading-4 font-bold mb-6">
-					Категорії де ви можете допомогти
-				</p>
-				<ul className="mb-6">
-					{Object.entries(categoriesData).map(([category, id]) => (
-						<li className="mb-6" key={category + id}>
-							<CategoryItem
-								category={category}
-								id={id}
-								setCategories={setCategories}
-							/>
-						</li>
-					))}
-				</ul>
-			</div>
-			<div
-				className="flex py-6 justify-between border-t-4 border-indigo-600 md:flex-row flex-col"
-				style={{ borderTop: "1px solid #FFFFFF" }}
-			>
+			<p className="font-16 leading-4 text-slate-300 mb-6">
+				Категорії де ви можете допомогти
+			</p>
+			<ul className="mb-6 overflow-auto">
+				{Object.entries(categoriesData).map(([category, id]) => (
+					<li className="mb-6" key={category + id}>
+						<CategoryItem
+							category={category}
+							id={id}
+							setCategories={setCategories}
+						/>
+					</li>
+				))}
+			</ul>
+			<div className="flex py-6 px-6 border-t border-t-solid border-t-slate-600">
 				<a
-					className="inline-block md:w-50 max-w-xs mb-4 md:mb-0 text-center font-semibold rounded-full bg-secondary-color p-4 md:mr-8 text-primary-color"
+					className="inline-block md:w-60 text-center font-semibold rounded-full bg-secondary-color py-4 px-6 md:mr-8 text-primary-color"
 					href={finalUrl}
 					target="_blank"
 					rel="noopener noreferrer"

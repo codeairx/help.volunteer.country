@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { json, useLoaderData } from "remix";
 
 import Main from "~/components/Main";
 import Header from "~/components/Header";
@@ -26,7 +27,24 @@ export const meta = () => ({
 	"og:locale": "uk",
 });
 
+export const loader = async () => {
+	const [categories, cities] = await Promise.all([
+		fetch("https://platforma.volunteer.country/api/event_categories.json").then(
+			(responce) => responce.json()
+		),
+		fetch("https://platforma.volunteer.country/api/cities").then((responce) =>
+			responce.json()
+		),
+	]);
+
+	return json({
+		cities,
+		categories,
+	});
+};
+
 export default () => {
+	const { cities, categories } = useLoaderData();
 	const [isChatsModalOpened, setIsChatsModalOpened] = useState(false);
 	const [isCategoriesModalOpened, setIsCategoriesModalOpened] = useState(false);
 
