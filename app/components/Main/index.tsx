@@ -1,11 +1,10 @@
 import unityHandsURL from "./unity_hands.png";
 
 export interface MainProps {
-	readonly toggleChatsModal?: VoidFunction;
 	readonly toggleCategoriesModal: VoidFunction;
 }
 
-export default ({ toggleChatsModal, toggleCategoriesModal }: MainProps) => (
+export default ({ toggleCategoriesModal }: MainProps) => (
 	<main className="flex py-6 px-4 md:py-16 md:px-8 lg:py-32 lg:px-20 flex-1">
 		<div className="lg:mr-36">
 			<h1 className="text-4xl lg:text-6xl font-bold mb-6 lg:mb-10">
@@ -28,9 +27,25 @@ export default ({ toggleChatsModal, toggleCategoriesModal }: MainProps) => (
 				>
 					Допомогти
 				</button>
-				<button className="inline-block md:w-60 font-semibold rounded-full bg-third-color py-4 px-6 mb-4 md:mb-0">
+				<a
+					rel="noopener noreferrer"
+					href="https://t.me/VolunteersHotlineBot"
+					target="_blank"
+					className="
+						inline-block
+						md:w-60
+						font-semibold
+						rounded-full
+						bg-third-color
+						py-4
+						px-6
+						mb-4
+						md:mb-0
+						text-center
+					"
+				>
 					Отримати допомогу
-				</button>
+				</a>
 			</div>
 		</div>
 

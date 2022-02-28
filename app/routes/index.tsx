@@ -7,7 +7,40 @@ import CategoriesModal from "~/components/CategoriesModal";
 
 import styles from "../tailwind.css";
 
-export const links = () => [{ rel: "stylesheet", href: styles }];
+export const links = () => [
+	{ rel: "stylesheet", href: styles },
+	{
+		name: "description",
+		content:
+			"Ми розвиваємо волонтерський рух в Україні. Наша місія – волонтерство для кожного.",
+	},
+	{
+		name: "keywords",
+		content:
+			"Ukrainian Volunteer Service, волонтерство, UVS, УВС, Українська Волонтерська Служба, Волонтерство в Україні",
+	},
+	{
+		property: "og:url",
+		content: "#",
+	},
+	{
+		property: "og:title",
+		content: "Українська Волонтерська Служба",
+	},
+	{
+		property: "og:description",
+		content:
+			"Ми розвиваємо волонтерський рух в Україні. Наша місія – волонтерство для кожного.",
+	},
+	{
+		property: "og:type",
+		content: "website",
+	},
+	{
+		property: "og:image",
+		content: "#",
+	},
+];
 
 export default () => {
 	const [isChatsModalOpened, setIsChatsModalOpened] = useState(false);

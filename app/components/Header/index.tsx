@@ -1,3 +1,4 @@
+import BookIcon from "../Icons/Book";
 import TelegramIcon from "../Icons/Telegram";
 
 import logoURL from "./logo.png";
@@ -16,7 +17,7 @@ export default ({ toggleChatsModal }: HeaderProps) => (
 				rel="noopener noreferrer"
 			>
 				<img
-					className="h-[45px] md:h-[55px] mr-1"
+					className="h-[32px] md:h-[55px] mr-1"
 					src={logoURL}
 					alt="Logo of Ukrainian Volunteer Service"
 				/>
@@ -25,11 +26,27 @@ export default ({ toggleChatsModal }: HeaderProps) => (
 				</span>
 			</a>
 
-			<div hidden className="h-px w-8 bg-slate-600 rotate-90" />
+			<div className="hidden md:inline-block h-px w-8 bg-slate-600 rotate-90" />
 
-			<a href="#" hidden rel="noopener noreferrer">
-				<img src="#" alt="Book icon" />
-				<span>Як отримати допомогу?</span>
+			<a
+				href="https://platforma.volunteer.country/posts?keywords=&filtered_categories%5B%5D=3"
+				target="_blank"
+				rel="noopener noreferrer"
+				className="
+					flex
+					items-center
+					border-2
+					border-solid
+					rounded-full
+					border-slate-600
+					p-2
+					mr-1
+					md:border-0
+					md:p-0
+				"
+			>
+				<BookIcon className="h-[16px] md:h-[22px] md:mr-2" />
+				<span className="hidden md:inline">Як отримати допомогу?</span>
 			</a>
 		</div>
 
@@ -50,7 +67,7 @@ export default ({ toggleChatsModal }: HeaderProps) => (
 					md:self-auto
 				"
 			>
-				<TelegramIcon className="h-[45px] md:h-6 md:mr-2" />
+				<TelegramIcon className="h-[32px] md:h-6 md:mr-2" />
 				<span className="hidden md:inline">Чат твого міста</span>
 			</button>
 			<a
@@ -63,9 +80,10 @@ export default ({ toggleChatsModal }: HeaderProps) => (
 					rounded-full
 					text-primary-color
 					py-2
-					px-4
+					px-3
 					font-semibold
 					self-stretch
+					md:px-4
 					md:self-auto
 				"
 				target="_blank"
