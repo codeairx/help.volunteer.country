@@ -20,7 +20,7 @@ export default ({
 	cities,
 	categories,
 }: CategoriesModalProps) => {
-	const [finalUrl, setFinalUrl] = useState("");
+	const [finalUrl, setFinalUrl] = useState(_baseUrl);
 	const [selectedCities, setCities] = useState<readonly string[]>([]);
 	const [selectedCategories, setCategories] = useState<
 		readonly CategoryObject[]
@@ -53,7 +53,15 @@ export default ({
 	};
 
 	return (
-		<Modal close={close} opened={opened}>
+		<Modal
+			close={() => {
+				setFinalUrl(_baseUrl);
+				setCities([]);
+				setCategories([]);
+				close();
+			}}
+			opened={opened}
+		>
 			<CustomSelect
 				isMulti
 				className="mb-6 text-primary-color"
