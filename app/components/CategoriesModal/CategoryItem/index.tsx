@@ -1,5 +1,7 @@
 import { useState, Dispatch, SetStateAction } from "react";
 
+import Checkbox from "~/components/Checkbox";
+
 interface CategoryItemProps {
 	readonly id: string;
 	readonly category: string;
@@ -26,11 +28,11 @@ export default ({ category, id, setCategories }: CategoryItemProps) => {
 	return (
 		<div className="flex items-center cursor-pointer" onClick={handleClick}>
 			<label className="flex items-center cursor-pointer">
-				<input
-					type="checkbox"
-					className="form-checkbox cursor-pointer"
+				<Checkbox
+					id={id}
 					checked={isChecked}
-					style={{ marginRight: "1rem" }}
+					onChange={() => setIsChecked((old) => !old)}
+					className="mr-2 lg:mr-4"
 				/>
 				<span className="inline-block w-full" onClick={handleClick}>
 					{category}
