@@ -19,8 +19,14 @@ export default () => {
 			<Main
 				toggleCategoriesModal={() => setIsCategoriesModalOpened((old) => !old)}
 			/>
-			<ChatsModal opened={isChatsModalOpened} />
-			<CategoriesModal opened={isCategoriesModalOpened} />
+			<ChatsModal
+				close={() => setIsChatsModalOpened((old) => !old)}
+				opened={isChatsModalOpened}
+			/>
+			<CategoriesModal
+				close={() => setIsCategoriesModalOpened((old) => !old)}
+				opened={isCategoriesModalOpened}
+			/>
 		</div>
 	);
 };

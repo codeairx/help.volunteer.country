@@ -5,16 +5,16 @@ import { useState } from "react";
 import chats from "~/data/chats.json";
 
 export interface ChatsModalProps {
+	readonly close: VoidFunction;
 	readonly opened: boolean;
 }
 
-export default ({ opened }: ChatsModalProps) => {
+export default ({ close, opened }: ChatsModalProps) => {
 	const [cityFilter, setCityFilter] = useState<string | null>(null);
 
 	return (
-		<Modal opened={opened}>
+		<Modal close={close} opened={opened}>
 			<Select
-				isMulti
 				onChange={console.log}
 				options={Object.keys(chats).map((city) => ({
 					value: city,

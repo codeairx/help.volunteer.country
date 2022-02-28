@@ -6,12 +6,13 @@ import categories from "~/data/categories.json";
 import chats from "~/data/chats.json";
 
 export interface CategoriesModalProps {
+	readonly close: VoidFunction;
 	readonly opened: boolean;
 }
 
-export default ({ opened }: CategoriesModalProps) => {
+export default ({ close, opened }: CategoriesModalProps) => {
 	return (
-		<Modal opened={opened}>
+		<Modal close={close} opened={opened}>
 			<Select
 				className="mb-6"
 				isMulti

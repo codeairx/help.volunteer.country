@@ -36,13 +36,38 @@ export default ({ toggleChatsModal }: HeaderProps) => (
 		<div className="flex items-center self-stretch">
 			<button
 				onClick={toggleChatsModal}
-				className="flex items-center rounded-full md:p-2 md:border-2 md:border-solid md:border-slate-700 mr-4 self-stretch md:self-auto"
+				className="
+					flex
+					items-center
+					rounded-full
+					md:p-2
+					md:border-2
+					md:border-solid
+					md:border-slate-700
+					mr-2
+					md:mr-4
+					self-stretch
+					md:self-auto
+				"
 			>
 				<TelegramIcon className="h-[45px] md:h-6 md:mr-2" />
 				<span className="hidden md:inline">Чат твого міста</span>
 			</button>
 			<a
-				className="flex items-center bg-secondary-color rounded-full text-primary-color py-2 px-4 font-semibold self-stretch md:self-auto"
+				className="
+					flex
+					items-center
+					text-xs
+					sm:text-base
+					bg-secondary-color
+					rounded-full
+					text-primary-color
+					py-2
+					px-4
+					font-semibold
+					self-stretch
+					md:self-auto
+				"
 				target="_blank"
 				href="https://savelife.in.ua/donate/"
 				rel="noopener noreferrer"
