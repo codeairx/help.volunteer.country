@@ -20,24 +20,31 @@ export default ({ close, opened, children }: PropsWithChildren<ModalProps>) => (
 			md:flex
 			md:justify-end
 		"
-		className="
-			transition-transform
-			bg-primary-color
-			px-4
-			pt-4
-			text-white
-			outline-none
-			flex
-			flex-col
-			md:relative
-			md:px-8
-			md:pt-8
-			md:border-l-2
-			md:border-l-solid
-			md:border-l-slate-800
-			md:w-1/2
-			lg:w-5/12
-		"
+		className={{
+			base: `
+				transition-transform
+				bg-primary-color
+				px-4
+				pt-4
+				text-white
+				outline-none
+				flex
+				flex-col
+				md:relative
+				md:px-8
+				md:pt-8
+				md:border-l-2
+				md:border-l-solid
+				md:border-l-slate-800
+				md:w-1/2
+				md:translate-x-full
+				lg:w-5/12
+			`,
+			beforeClose: "",
+			afterOpen: `
+				md:translate-x-0
+			`,
+		}}
 		bodyOpenClassName="overflow-hidden"
 		shouldCloseOnOverlayClick
 		onRequestClose={close}
