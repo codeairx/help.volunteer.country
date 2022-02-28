@@ -5,7 +5,7 @@ import Checkbox from "~/components/Checkbox";
 interface CategoryItemProps {
 	readonly id: string;
 	readonly category: string;
-	readonly setCategories: Dispatch<SetStateAction<CategoryObject[]>>;
+	readonly setCategories: Dispatch<SetStateAction<readonly CategoryObject[]>>;
 }
 
 export interface CategoryObject {

@@ -29,12 +29,17 @@ export const meta = () => ({
 
 export const loader = async () => {
 	const [categories, cities] = await Promise.all([
-		fetch("https://platforma.volunteer.country/api/event_categories.json").then(
-			(responce) => responce.json()
-		),
-		fetch("https://platforma.volunteer.country/api/cities").then((responce) =>
-			responce.json()
-		),
+		fetch("https://platforma.volunteer.country/api/event_categories.json")
+			.then((response) => response.json())
+			.then((categories) =>
+				categories.map(({ id, name }: { id: string; name: string }) => ({
+					id,
+					category: name,
+				}))
+			),
+		fetch("https://platforma.volunteer.country/api/cities")
+			.then((response) => response.json())
+			.then(({ cities }) => cities),
 	]);
 
 	return json({
@@ -61,6 +66,8 @@ export default () => {
 			<CategoriesModal
 				close={() => setIsCategoriesModalOpened((old) => !old)}
 				opened={isCategoriesModalOpened}
+				cities={cities}
+				categories={categories}
 			/>
 		</div>
 	);

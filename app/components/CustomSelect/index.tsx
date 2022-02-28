@@ -1,19 +1,27 @@
 import Select from "react-select";
 
 interface CustomSelectProps {
-	[x: string]: any;
+	readonly [x: string]: object | string | boolean;
 }
 
 const customStyles = {
-	control: (provided: any, state: any) => ({
+	control: (provided: object, state: object) => ({
 		...provided,
 		background: "#111",
 		borderRadius: "50px",
 		cursor: "pointer",
 	}),
-	option: (provided: any, state: any) => ({
+	option: (provided: object, state: object) => ({
 		...provided,
 		cursor: "pointer",
+	}),
+	input: (provided: object, state: object) => ({
+		...provided,
+		color: "#fff",
+	}),
+	placeholder: (provided: object, state: object) => ({
+		...provided,
+		color: "#fff",
 	}),
 };
 

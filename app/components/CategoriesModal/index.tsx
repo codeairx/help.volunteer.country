@@ -5,64 +5,60 @@ import Magazine from "../Icons/Magazine";
 import CustomSelect from "../CustomSelect";
 import CategoryItem, { CategoryObject } from "./CategoryItem";
 
-import chats from "~/data/chats.json";
-import categoriesData from "~/data/categories.json";
-
 export interface CategoriesModalProps {
 	readonly close: VoidFunction;
 	readonly opened: boolean;
-}
-
-export interface CityObject {
-	readonly city: string;
+	readonly cities: readonly string[];
+	readonly categories: readonly CategoryObject[];
 }
 
 export const _baseUrl = "https://platforma.volunteer.country/events";
 
-export default ({ close, opened }: CategoriesModalProps) => {
+export default ({
+	close,
+	opened,
+	cities,
+	categories,
+}: CategoriesModalProps) => {
 	const [finalUrl, setFinalUrl] = useState("");
-	const [cities, setCities] = useState<CityObject[]>([]);
-	const [categories, setCategories] = useState<CategoryObject[]>([]);
+	const [selectedCities, setCities] = useState<readonly string[]>([]);
+	const [selectedCategories, setCategories] = useState<
+		readonly CategoryObject[]
+	>([]);
 
 	const composeUrl = (
 		baseUrl: string = "",
-		cities: CityObject[] = [],
-		categories: CategoryObject[] = []
+		cities: readonly string[] = [],
+		categories: readonly CategoryObject[] = []
 	): string => {
-		let modUrl = [_baseUrl, "?keywords="];
-		if (!cities.length && !categories.length) return baseUrl;
-		else if (cities.length && !categories.length) {
-			cities.forEach((city) => modUrl.push(city.city + " "));
-		} else if (!cities.length && categories.length) {
-			categories.forEach((cat) =>
-				modUrl.push(`&filtered_categories[]=${cat.id}`)
-			);
-		} else {
-			cities.forEach((city) => modUrl.push(city.city + " "));
-			categories.forEach((cat) =>
-				modUrl.push(`&filtered_categories[]=${cat.id}`)
-			);
-		}
-		return modUrl.join("");
+		const citiesQuery = cities.length > 0 ? `keywords=${cities.join(" ")}` : "";
+		const categoriesQeury =
+			categories.length > 0
+				? categories.map(({ id }) => `filtered_categories[]=${id}`).join("&")
+				: "";
+
+		const fullQuery = [citiesQuery, categoriesQeury].filter(Boolean).join("&");
+
+		return baseUrl + (fullQuery.length > 0 ? `?${fullQuery}` : "");
 	};
 
 	useEffect(() => {
-		const url = composeUrl(_baseUrl, cities, categories);
+		const url = composeUrl(_baseUrl, selectedCities, selectedCategories);
 		setFinalUrl(encodeURI(url));
-	}, [categories.length, cities.length]);
+	}, [selectedCategories.length, selectedCities.length]);
 
 	const handleChange = (data: { value: string; label: string }[]) => {
-		const cities = data.map((item) => ({ city: item.value }));
+		const cities = data.map(({ value }) => value);
 		setCities(cities);
 	};
 
 	return (
 		<Modal close={close} opened={opened}>
 			<CustomSelect
-				className="mb-6 text-primary-color"
 				isMulti
+				className="mb-6 text-primary-color"
 				onChange={handleChange}
-				options={Object.keys(chats).map((city) => ({
+				options={cities.map((city) => ({
 					value: city,
 					label: city,
 				}))}
@@ -72,7 +68,7 @@ export default ({ close, opened }: CategoriesModalProps) => {
 				Категорії де ви можете допомогти
 			</p>
 			<ul className="mb-6 overflow-auto">
-				{Object.entries(categoriesData).map(([category, id]) => (
+				{categories.map(({ category, id }) => (
 					<li className="mb-6" key={category + id}>
 						<CategoryItem
 							category={category}
@@ -93,7 +89,7 @@ export default ({ close, opened }: CategoriesModalProps) => {
 				</a>
 				<a
 					className="flex items-center justify-center md:w-50 max-w-xs text-center border font-semibold p-4 rounded-full bg-primary-color"
-					href="#"
+					href="https://volunteer.country/registration"
 					target="_blank"
 				>
 					<span className="inline-block mr-4">Заповнити анкету</span>
