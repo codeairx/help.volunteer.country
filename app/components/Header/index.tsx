@@ -7,19 +7,22 @@ export interface HeaderProps {
 }
 
 export default ({ toggleChatsModal }: HeaderProps) => (
-	<header className="bg-primary-color text-white py-1 px-4 md:py-2 md:px-8 lg:py-4 lg:px-20 flex justify-between items-center">
-		<div className="flex items-center">
+	<header className="bg-primary-color text-white p-4 md:py-2 md:px-8 lg:py-4 lg:px-20 flex justify-between items-center">
+		<div className="flex items-center self-stretch">
 			<a
-				className="flex"
+				className="flex items-center"
 				target="_blank"
 				href="https://www.volunteer.country"
 				rel="noopener noreferrer"
 			>
 				<img
-					className="h-[55px]"
+					className="h-[45px] md:h-[55px] mr-1"
 					src={logoURL}
 					alt="Logo of Ukrainian Volunteer Service"
 				/>
+				<span className="hidden md:inline font-bold capitalize w-min leading-none text-sm">
+					Українська Волонтерська Служба
+				</span>
 			</a>
 
 			<div hidden className="h-px w-8 bg-slate-600 rotate-90" />
@@ -30,15 +33,16 @@ export default ({ toggleChatsModal }: HeaderProps) => (
 			</a>
 		</div>
 
-		<div className="flex items-center">
+		<div className="flex items-center self-stretch">
 			<button
 				onClick={toggleChatsModal}
-				className="flex items-center rounded-full p-2 border-2 border-solid border-slate-700 mr-4"
+				className="flex items-center rounded-full md:p-2 md:border-2 md:border-solid md:border-slate-700 mr-4 self-stretch md:self-auto"
 			>
-				<TelegramIcon className="mr-2" /> <span>Чат твого міста</span>
+				<TelegramIcon className="h-[45px] md:h-6 md:mr-2" />
+				<span className="hidden md:inline">Чат твого міста</span>
 			</button>
 			<a
-				className="bg-secondary-color rounded-full text-primary-color py-3 px-6 font-semibold"
+				className="flex items-center bg-secondary-color rounded-full text-primary-color py-2 px-4 font-semibold self-stretch md:self-auto"
 				target="_blank"
 				href="https://savelife.in.ua/donate/"
 				rel="noopener noreferrer"
