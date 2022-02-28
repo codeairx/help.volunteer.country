@@ -15,10 +15,8 @@ export default ({ close, opened, children }: PropsWithChildren<ModalProps>) => (
 			left-0
 			w-full
 			h-full
-			p-4
-			md:p-0
-			md:flex
-			md:justify-end
+			flex
+			justify-end
 		"
 		className={{
 			base: `
@@ -30,7 +28,8 @@ export default ({ close, opened, children }: PropsWithChildren<ModalProps>) => (
 				outline-none
 				flex
 				flex-col
-				md:relative
+				relative
+				w-11/12
 				md:px-8
 				md:pt-8
 				md:border-l-2
@@ -54,8 +53,8 @@ export default ({ close, opened, children }: PropsWithChildren<ModalProps>) => (
 			className="
 				bg-white
 				absolute
-				top-1
-				left-1
+				top-4
+				-left-6
 				rounded-full
 				p-4
 				flex
