@@ -27,17 +27,13 @@ export default ({ category, id, setCategories }: CategoryItemProps) => {
 
 	return (
 		<div className="flex items-center cursor-pointer" onClick={handleClick}>
-			<label className="flex items-center cursor-pointer">
-				<Checkbox
-					id={id}
-					checked={isChecked}
-					onChange={() => setIsChecked((old) => !old)}
-					className="mr-2 lg:mr-4"
-				/>
-				<span className="inline-block w-full" onClick={handleClick}>
-					{category}
-				</span>
-			</label>
+			<Checkbox
+				id={id}
+				checked={isChecked}
+				onChange={handleClick}
+				className="mr-2 lg:mr-4"
+			/>
+			<span className="inline-block w-full">{category}</span>
 		</div>
 	);
 };

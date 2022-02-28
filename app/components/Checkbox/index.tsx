@@ -22,7 +22,7 @@ export default ({ id, checked, onChange, className = "" }: CheckboxProps) => (
 				items-center
 				justify-center
 				rounded
-				w-6
+				w-5
 				h-5
 				border
 				border-solid
