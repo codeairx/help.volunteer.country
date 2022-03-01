@@ -25,8 +25,8 @@ export const meta = () => ({
 	"og:type": "website",
 	"og:image:url": "https://help.volunteer.country" + unityHandsURL,
 	"og:image:type": "image/png",
-	"og:image:width": "400",
-	"og:image:height": "200",
+	"og:image:width": "600",
+	"og:image:height": "600",
 	"og:image:alt": "Ukrainian unity hands",
 	"og:locale": "uk",
 });
