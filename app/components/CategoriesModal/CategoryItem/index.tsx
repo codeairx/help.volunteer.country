@@ -1,4 +1,4 @@
-import { useState, Dispatch, SetStateAction } from "react";
+import { useState, Dispatch, SetStateAction, useEffect } from "react";
 
 import Checkbox from "~/components/Checkbox";
 
@@ -18,12 +18,15 @@ export default ({ category, id, setCategories }: CategoryItemProps) => {
 
 	const handleClick = () => {
 		setIsChecked((prev) => !prev);
-		if (!isChecked) {
+	};
+
+	useEffect(() => {
+		if (isChecked) {
 			setCategories((prev) => [...prev, { category, id }]);
 		} else {
 			setCategories((prev) => [...prev.filter((cat) => cat.id !== id)]);
 		}
-	};
+	}, [isChecked]);
 
 	return (
 		<div className="flex items-center cursor-pointer" onClick={handleClick}>
