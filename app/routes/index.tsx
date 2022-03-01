@@ -17,13 +17,13 @@ export const meta = () => ({
 		"Ми розвиваємо волонтерський рух в Україні. Наша місія – волонтерство для кожного.",
 	keywords:
 		"Ukrainian Volunteer Service, волонтерство, UVS, УВС, Українська Волонтерська Служба, Волонтерство в Україні",
-	canonical: "https://www.help.volunteer.country",
-	"og:url": "https://www.help.volunteer.country",
+	canonical: "https://help.volunteer.country",
+	"og:url": "https://help.volunteer.country",
 	"og:title": "Українська Волонтерська Служба",
 	"og:description":
 		"Ми розвиваємо волонтерський рух в Україні. Наша місія – волонтерство для кожного.",
 	"og:type": "website",
-	"og:image": "https://www.help.volunteer.country" + unityHandsURL,
+	"og:image": "https://help.volunteer.country" + unityHandsURL,
 	"og:locale": "uk",
 });
 
