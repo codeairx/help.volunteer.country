@@ -73,9 +73,9 @@ export default ({
 				placeholder="Оберіть місто"
 			/>
 			<p className="font-16 leading-4 text-slate-300 mb-6">
-				Категорії де ви можете допомогти
+				Категорії, де ви можете допомогти
 			</p>
-			<ul className="mb-6 overflow-auto">
+			<ul className="flex-1 mb-6 overflow-auto">
 				{categories.map(({ category, id }) => (
 					<li className="mb-6" key={category + id}>
 						<CategoryItem
@@ -86,9 +86,34 @@ export default ({
 					</li>
 				))}
 			</ul>
-			<div className="flex py-6 border-t border-t-solid border-t-slate-600">
+			<div
+				className="
+					flex
+					flex-col
+					items-stretch
+					justify-between
+					py-6
+					border-t
+					border-t-solid
+					border-t-slate-600
+					md:items-center
+					md:flex-row
+				"
+			>
 				<a
-					className="inline-block mr-4 md:w-60 text-center font-semibold rounded-full bg-secondary-color p-4 md:mr-8 text-primary-color"
+					className="
+						inline-block
+						text-center
+						font-semibold
+						rounded-full
+						bg-secondary-color
+						p-4
+						text-primary-color
+						flex-1
+						mb-4
+						md:mr-4
+						md:mb-0
+					"
 					href={finalUrl}
 					target="_blank"
 					rel="noopener noreferrer"
@@ -96,7 +121,18 @@ export default ({
 					Знайти волонтерства
 				</a>
 				<a
-					className="flex items-center justify-center md:w-50 max-w-xs text-center border font-semibold p-4 rounded-full bg-primary-color"
+					className="
+						flex-1
+						flex
+						items-center
+						justify-center
+						text-center
+						border
+						font-semibold
+						p-4
+						rounded-full
+						bg-primary-color
+					"
 					href="https://volunteer.country/registration"
 					target="_blank"
 				>
