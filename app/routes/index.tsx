@@ -23,7 +23,11 @@ export const meta = () => ({
 	"og:description":
 		"Ми розвиваємо волонтерський рух в Україні. Наша місія – волонтерство для кожного.",
 	"og:type": "website",
-	"og:image": "https://help.volunteer.country" + unityHandsURL,
+	"og:image:url": "https://help.volunteer.country" + unityHandsURL,
+	"og:image:type": "image/png",
+	"og:image:width": "400",
+	"og:image:height": "200",
+	"og:image:alt": "Ukrainian unity hands",
 	"og:locale": "uk",
 });
 
