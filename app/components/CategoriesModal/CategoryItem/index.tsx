@@ -24,7 +24,7 @@ export default ({ category, id, setCategories }: CategoryItemProps) => {
 		if (isChecked) {
 			setCategories((prev) => [...prev, { category, id }]);
 		} else {
-			setCategories((prev) => [...prev.filter((cat) => cat.id !== id)]);
+			setCategories((prev) => prev.filter((cat) => cat.id !== id));
 		}
 	}, [isChecked]);
 
