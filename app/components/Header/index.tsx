@@ -46,7 +46,7 @@ export default ({ toggleChatsModal }: HeaderProps) => (
 				"
 			>
 				<BookIcon className="h-[16px] md:h-[22px] md:mr-2" />
-				<span className="hidden md:inline">Як отримати допомогу?</span>
+				<span className="hidden lg:inline">Як отримати допомогу?</span>
 			</a>
 		</div>
 
