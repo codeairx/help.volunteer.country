@@ -1,23 +1,13 @@
 export interface CheckboxProps {
-	readonly id: string;
 	readonly checked: boolean;
 	readonly onChange: VoidFunction;
 	readonly className?: string;
 }
 
-export default ({ id, checked, onChange, className = "" }: CheckboxProps) => (
-	<>
-		<input
-			id={id}
-			type="checkbox"
-			checked={checked}
-			onChange={onChange}
-			className="invisible absolute"
-		/>
-		<label
-			htmlFor={id}
-			className={
-				`
+export default ({ checked, onChange, className = "" }: CheckboxProps) => (
+	<label
+		className={
+			`
 				flex
 				items-center
 				justify-center
@@ -41,9 +31,16 @@ export default ({ id, checked, onChange, className = "" }: CheckboxProps) => (
 				before:-translate-x-1/2
 				before:-translate-y-1/2
 				` +
-				(checked ? " before:bg-slate-200 " : "") +
-				className
-			}
-		></label>
-	</>
+			(checked ? " before:bg-slate-200 " : "") +
+			className
+		}
+	>
+		<input
+			type="checkbox"
+			checked={checked}
+			onChange={onChange}
+			className="invisible absolute"
+			defaultChecked={checked}
+		/>
+	</label>
 );
