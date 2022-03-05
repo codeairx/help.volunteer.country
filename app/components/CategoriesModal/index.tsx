@@ -133,8 +133,9 @@ export default ({
 						rounded-full
 						bg-primary-color
 					"
-					href="https://volunteer.country/registration"
+					href="https://t.me/VolunteersHotlineBot"
 					target="_blank"
+					rel="noopener noreferrer"
 				>
 					<span className="inline-block mr-4">Заповнити анкету</span>
 					<Magazine />
